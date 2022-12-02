@@ -1,12 +1,15 @@
 // Librairies
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 function Product(props) {
     return (
-        <View style={styles.card}>
-            <Text style={styles.cardTitle}>{props.item.name}</Text>
-        </View>
+        <TouchableOpacity onPress={()=>console.log(props.item.name)}>
+            <View style={styles.card}>
+                <Text style={styles.cardTitle}>{props.item.name}</Text>
+            </View>
+        </TouchableOpacity>
+        
     );
 }
 

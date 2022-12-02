@@ -1,6 +1,6 @@
 // Libraries
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Image, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, FlatList, TouchableOpacity } from 'react-native';
 
 // Composant
 import Product from './components/Product/Product';
@@ -83,11 +83,24 @@ export default function App() {
                 />
             )}
             <View style={{ marginTop: 40 }}>
-                <Button
+                {/* <Button
                     onPress={() => setIsDisplayed(prevState => !prevState)}
                     title={isDisplayed ? 'Fermer le menu' : 'Ouvrir le menu'}
                     color="#006341"
-                />
+                /> */}
+                <TouchableOpacity
+                    onPress={()=>setIsDisplayed(prevState => !prevState)}
+                    
+                    style={{
+                        widht:'40%',
+                        backgroundColor:'#006341',
+                        paddingHorizontal:15,
+                        paddingVertical:5,
+                        borderRadius:5
+                        }}
+                >
+                    <Text style={{color:'white'}} >{isDisplayed ? 'Fermer le menu' : 'Ouvrir le menu'}</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
