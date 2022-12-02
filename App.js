@@ -1,6 +1,13 @@
 // Libraries
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Image, FlatList, TouchableOpacity } from 'react-native';
+import { 
+    StyleSheet, 
+    Text, 
+    View,
+    Image, 
+    FlatList, 
+    TouchableOpacity,
+    Modal } from 'react-native';
 
 // Composant
 import Product from './components/Product/Product';
@@ -8,6 +15,7 @@ import Product from './components/Product/Product';
 export default function App() {
     // States
     const [isDisplayed, setIsDisplayed] = useState(false);
+    const [modal,setModal] = useState(true)
     const [products, setProducts] = useState([
         {
             name: 'Iced Latte',
@@ -58,9 +66,45 @@ export default function App() {
             name: 'Chocolat Viennois Signature Glacé',
         },
     ]);
-
     return (
         <View style={styles.container}>
+            <Modal transparent={true} visible={modal} animationType="slide">
+                <View style={{
+                    flex:1,
+                    alignItems:'center',
+                    justifyContent:'center',
+                    backgroundColor:'rgba(0,0,0,.5)'
+                }}>
+                    <View style={{
+                        backgroundColor:'white',
+                        padding:17,
+                        elevation:40,
+                        shadowColor:'#006341',
+                        shadowOpacity:.4,
+                        shadowRadius:5,
+                        shadowOffset:{width:0,height:0}
+                    }}>
+                        <TouchableOpacity onPress={()=>setModal(false)}>
+                            <Text style={{
+                                textAlignVertical:"center",
+                                textAlign:"center",
+                                borderStyle:"solid",
+                                borderWidth:2,
+                                borderColor:"#006341",
+                                borderRadius:30,
+                                width:30,
+                                height:30,
+                                color:"#006341",
+                                marginBottom:8
+                            }}>X</Text>
+                        </TouchableOpacity>
+                        <Text>
+                            Ceci est ma première modale
+                        </Text>
+                    </View>
+                </View>
+                
+            </Modal>
             <Image
                 source={{
                     uri: 'https://believemy.com/uploads/6435acae7f1901acb1e4355395964ea5_ea186b839326aea1816bd1f3f2ab84b3.png',
@@ -78,16 +122,11 @@ export default function App() {
                 <FlatList
                     data={products}
                     renderItem={({ item }) => <Product item={item} />}
-                    keyExtractor={item => Math.random().toString()}
                     style={{ width: '100%' }}
                 />
             )}
             <View style={{ marginTop: 40 }}>
-                {/* <Button
-                    onPress={() => setIsDisplayed(prevState => !prevState)}
-                    title={isDisplayed ? 'Fermer le menu' : 'Ouvrir le menu'}
-                    color="#006341"
-                /> */}
+                
                 <TouchableOpacity
                     onPress={()=>setIsDisplayed(prevState => !prevState)}
                     
@@ -96,8 +135,9 @@ export default function App() {
                         backgroundColor:'#006341',
                         paddingHorizontal:15,
                         paddingVertical:5,
-                        borderRadius:5
+                        borderRadius:5,
                         }}
+                        activeOpacity={0.8}
                 >
                     <Text style={{color:'white'}} >{isDisplayed ? 'Fermer le menu' : 'Ouvrir le menu'}</Text>
                 </TouchableOpacity>
