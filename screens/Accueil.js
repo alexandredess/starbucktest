@@ -7,13 +7,14 @@ import {
     Image, 
     FlatList, 
     TouchableOpacity,
-    Modal, } from 'react-native';
+    Modal,
+    Button } from 'react-native';
 import { Formik } from 'formik';
 
 // Composant
 import Product from '../components/Product/Product';
 
-function Accueil() {
+function Accueil({navigation}) {
     // States
     const [isDisplayed, setIsDisplayed] = useState(false);
     const [modal,setModal] = useState(true)
@@ -69,6 +70,12 @@ function Accueil() {
     ]);
     return (
         <View style={styles.container}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Button
+                title="Lieux"
+                onPress={() => navigation.navigate('Lieux')}
+                />
+            </View>
             <Modal transparent={true} visible={modal} animationType="slide">
                 <View style={{
                     flex:1,

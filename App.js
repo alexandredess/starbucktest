@@ -8,6 +8,7 @@ import Places from './screens/Places';
 function App() {
 
     const Stack = createNativeStackNavigator();
+    
 
     return (
     <NavigationContainer>
