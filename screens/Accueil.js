@@ -70,12 +70,12 @@ function Accueil({navigation}) {
     ]);
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Button
                 title="Lieux"
                 onPress={() => navigation.navigate('Lieux')}
                 />
-            </View>
+            </View> */}
             <Modal transparent={true} visible={modal} animationType="slide">
                 <View style={{
                     flex:1,

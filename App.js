@@ -2,8 +2,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Accueil from './screens/Accueil';
-import Places from './screens/Places';
+import Tabs from './components/BottomTabs';
 
 function App() {
 
@@ -12,10 +11,7 @@ function App() {
 
     return (
     <NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen name="Accueil" component={Accueil} />
-            <Stack.Screen name="Lieux" component={Places} />
-        </Stack.Navigator>
+        <Tabs/>
     </NavigationContainer>
     );
 }
