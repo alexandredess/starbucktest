@@ -19,7 +19,7 @@ function App() {
     //     <Tabs/>
     // </NavigationContainer>
     <NavigationContainer >
-        <Drawer.Navigator screenOptions={{drawerActiveTintColor:'#006341',headerTintColor:'#006341'}}>
+        <Drawer.Navigator screenOptions={{drawerActiveTintColor:'#006341',headerTintColor:'#006341',flex:1}}>
             <Drawer.Screen name="Accueil" component={Accueil}/>
             <Drawer.Screen name="Lieux" component={Places} />
             <Drawer.Screen name="Contact" component={Contact} />
