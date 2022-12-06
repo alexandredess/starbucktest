@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Accueil from "../screens/Accueil";
 import Places from "../screens/Places";
+import Contact from "../screens/Contact";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,17 +12,22 @@ export default function BottomNav() {
 
     const accueil = "Accueil";
     const places = "Lieux";
+    const contact = "Contact";
+    //JSX
     return (
       
         <Tab.Navigator
-    screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        //options d'écran
+          screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
           if (route.name === 'Accueil') {
             iconName = 'home';
           } else if (route.name === 'Lieux') {
             iconName = focused ? 'ios-list' : 'ios-list-outline';
+          } else if (route.name === 'Contact'){
+            iconName = 'at-circle-outline';
           }
 
           // You can return any component that you like here!
@@ -33,7 +39,7 @@ export default function BottomNav() {
       >
           <Tab.Screen name={accueil} component={Accueil} />
           <Tab.Screen name={places} component={Places} />
-          {/* <Tab.Screen name={restaurantName} component={Restaurant} /> */}
+          <Tab.Screen name={contact} component={Contact} /> 
         </Tab.Navigator>
       
     );
